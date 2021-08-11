@@ -16,31 +16,44 @@
     margin-top: 1.5rem
 }
 
-.mw-500{
+.mw-500 {
     max-width: 500px;
     padding: 1rem 1.5rem;
 }
 
 .profile_image {
     height: 12rem;
-    width: 17rem;
+    width: 12rem;
     border-radius: 20rem;
     object-fit: cover;
 }
 
-.NNS_B{
+.NNS_B {
     font-family: "NanumSquareB", cursive;
 }
 
-
-.round_button{
+.round_button {
     color: black;
     text-decoration: none;
     box-shadow: 0 0 3px black;
-    border-radius: 28rem;
+    border-radius: 20rem;
     padding: 0.3rem;
 }
 
+.round_button:hover {
+    color: dimgrey;
+}
+
+.article_content {
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.article_image {
+    border-radius: 2rem;
+    width: 65%;
+    box-shadow: 0 0 1rem #b4b4b4;
+}
 
 .round_button:hover {
     color: dimgrey;

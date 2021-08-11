@@ -6,38 +6,51 @@
     <style>
         .container div {
           width: 280px;
-          height: 500px;
-          background-color: antiquewhite;
           display: flex;
           justify-content: center;
           align-items: center;
-          border-radius: 8px;
+          border-radius: 1rem;
+            flex-direction: column;
+            box-shadow: 0 0 1rem #c6c6c6;
         }
 
-        .container .item1 { height: 200px; }
-        .container .item4 { height: 800px; }
-        .container .item6 { height: 600px; }
-        .container .item11 { height: 400px; }
+        .container img {
+            width: 100%;
+            border-radius: 1rem;
+        }
+
     </style>
 
+    <div class="container my-4">
 
-    <div class="container">
-      <div class="item1">1</div>
-      <div class="item2">2</div>
-      <div class="item3">3</div>
-      <div class="item4">4</div>
-      <div class="item5">5</div>
-      <div class="item6">6</div>
-      <div class="item7">7</div>
-      <div class="item8">8</div>
-      <div class="item9">9</div>
-      <div class="item10">10</div>
-      <div class="item11">11</div>
-      <div class="item12">12</div>
-      <div class="item13">13</div>
+        {% for article in article_list %}
+
+            <div>
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                    <img src="{{ article.image.url }}" alt="">
+                </a>
+                <span class="my-2 NNS_B">{{ article.title }}</span>
+            </div>
+
+        {% endfor %}
+
     </div>
 
-    <script src="{% static 'js/magic grid.js' %}"></script>
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+
+    {% include 'snippets/pagination.html' %}
+
+    <div class="text-center my-5">
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-dark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-outline-dark rounded-pill px-5">
+            Create Article
+        </a>
+    </div>
+
 
 
 {% endblock %}
