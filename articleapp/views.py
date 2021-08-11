@@ -28,7 +28,6 @@ class ArticleCreateView(CreateView):
         return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
 
 
-
 class ArticleDetailView(DetailView, FormMixin):
     model = Article
     form_class = CommentCreationForm
