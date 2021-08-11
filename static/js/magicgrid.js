@@ -42,7 +42,7 @@ var checkParams = function (config) {
  * @param prop - a property with a missing value
  */
 var error = function (prop) {
-  throw new Error(("Missing property '" + prop + "' in MagicGrid config"));
+  throw new Error(("Missing property '" + prop + "' in Magicgrid config"));
 };
 
 /**
@@ -67,12 +67,12 @@ var getMin = function (cols) {
  * @author emmanuelolaojo
  * @since 11/10/18
  *
- * The MagicGrid class is an
+ * The Magicgrid class is an
  * implementation of a flexible
  * grid layout.
  */
 
-var MagicGrid = function MagicGrid (config) {
+var Magicgrid = function MagicGrid (config) {
   checkParams(config);
 
   if (config.container instanceof HTMLElement) {
@@ -103,7 +103,7 @@ var MagicGrid = function MagicGrid (config) {
  *
  * @private
  */
-MagicGrid.prototype.init = function init () {
+Magicgrid.prototype.init = function init () {
   if (!this.ready() || this.started) { return; }
 
   this.container.style.position = "relative";
@@ -127,7 +127,7 @@ MagicGrid.prototype.init = function init () {
  * @return width of a column in the grid
  * @private
  */
-MagicGrid.prototype.colWidth = function colWidth () {
+Magicgrid.prototype.colWidth = function colWidth () {
   return this.items[0].getBoundingClientRect().width + this.gutter;
 };
 
@@ -138,7 +138,7 @@ MagicGrid.prototype.colWidth = function colWidth () {
  * @return {{cols: Array, wSpace: number}}
  * @private
  */
-MagicGrid.prototype.setup = function setup () {
+Magicgrid.prototype.setup = function setup () {
   var width = this.container.getBoundingClientRect().width;
   var colWidth = this.colWidth();
   var numCols = Math.floor(width/colWidth) || 1;
@@ -166,7 +166,7 @@ MagicGrid.prototype.setup = function setup () {
  * @return {*} next available column
  * @private
  */
-MagicGrid.prototype.nextCol = function nextCol (cols, i) {
+Magicgrid.prototype.nextCol = function nextCol (cols, i) {
   if (this.useMin) {
     return getMin(cols);
   }
@@ -180,7 +180,7 @@ MagicGrid.prototype.nextCol = function nextCol (cols, i) {
  * and index then stretches the container to
  * the height of the grid.
  */
-MagicGrid.prototype.positionItems = function positionItems () {
+Magicgrid.prototype.positionItems = function positionItems () {
   var ref = this.setup();
     var cols = ref.cols;
     var wSpace = ref.wSpace;
@@ -220,7 +220,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
  *
  * @return {Boolean} true if every item is present
  */
-MagicGrid.prototype.ready = function ready () {
+Magicgrid.prototype.ready = function ready () {
   if (this.static) { return true; }
   return this.items.length >= this.size;
 };
@@ -233,7 +233,7 @@ MagicGrid.prototype.ready = function ready () {
  *
  * @private
  */
-MagicGrid.prototype.getReady = function getReady () {
+Magicgrid.prototype.getReady = function getReady () {
     var this$1 = this;
 
   var interval = setInterval(function () {
@@ -254,7 +254,7 @@ MagicGrid.prototype.getReady = function getReady () {
  * repositions them whenever the
  * window size changes.
  */
-MagicGrid.prototype.listen = function listen () {
+Magicgrid.prototype.listen = function listen () {
     var this$1 = this;
 
   if (this.ready()) {
@@ -274,10 +274,10 @@ MagicGrid.prototype.listen = function listen () {
   else { this.getReady(); }
 };
 
-let magicGrid = new MagicGrid({
+let magicGrid = new Magicgrid({
   container: '.container',
   animate: true,
-  gutter: 30,
+  gutter: 12,
   static: true,
   useMin: true
 });

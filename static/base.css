@@ -58,3 +58,13 @@
 .round_button:hover {
     color: dimgrey;
 }
+
+.comment_box{
+    text-align: left;
+    border: solid;
+    border-color: #e3dede;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+
+}
