@@ -63,6 +63,12 @@ INSTALLED_APPS = [
 
 ]
 
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -156,6 +162,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGIN_REDIRECT_URL = reverse_lazy('articleapp:list')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
