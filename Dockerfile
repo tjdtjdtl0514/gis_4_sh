@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "tjfjgfghj154"
+RUN echo "tjfjgfghgjjgh4"
 
 RUN git clone https://github.com/tjdtjdtl0514/gis_4_sh.git
 
